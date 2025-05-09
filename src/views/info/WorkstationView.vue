@@ -3,6 +3,7 @@
     import WobblyText from "@/components/text/Wobbly.vue";
 
     import artixDesktop from "@/assets/img/workstation_artix.webp";
+    import {workStation} from "@/info"
 </script>
 
 <template>
@@ -21,11 +22,8 @@
             <div class="divider" />
 
             <!-- About me content -->
-            <p class="adaptive-text-x">
-                My main OS is Artix Linux, which I use with Windows in a dual boot.
-                <br><br>
-                I've tried tons of Linux distros but I always end up with Artix, so I will 
-                stick with that for a while.
+            <p class="adaptive-text-x" v-html="workStation">
+               
                 
             </p>
         </div>

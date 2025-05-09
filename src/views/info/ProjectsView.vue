@@ -9,6 +9,7 @@
     import archanImage from "@/assets/img/archan.webp";
     import limeCordIcon from "@/assets/img/limecord.webp";
     import ryokoIcon from "@/assets/img/ryoko.webp";
+    import { projects } from "@/info"; 
 </script>
 
 <template>
@@ -30,24 +31,13 @@
             <!-- About me content -->
             <div class="projects__list flex col g-m">
                 <ProjectCard
-                    title="Rubiu5"
-                    description="Rubius's Discord bot, made in JavaScript."
-                    :image="rubiu5Image"
-                />
-                <ProjectCard
-                    title="Archan"
-                    description="My own Discord bot coded in rust, rocking a control panel."
-                    :image="archanImage"
-                />
-                <ProjectCard
-                    title="LimeCord"
-                    description="Lightweight frontend for Discord writen with Tauri."
-                    :image="limeCordIcon"
-                />
-                <ProjectCard
-                    title="Ryoko"
-                    description="Performant Kotlin Minecraft plugin to replace EssentialsX."
-                    :image="ryokoIcon"
+                    v-for="(project, index) in projects"
+                    :key="index"
+                    :title="project.title"
+                    :description="project.description"
+                    :image="project.image"
+                    :technologies="project.technologies"
+                    :github="project.github"
                 />
             </div>
         </div>

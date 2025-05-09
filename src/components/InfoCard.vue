@@ -14,18 +14,23 @@
             <img class="img full-h full-w" :src="iconUrl" alt="">
         </div>
 
-        <h2 class="adaptive-text-m overflow-hidden text-ellipsis">{{ title }}</h2>
+        <h2 class="adaptive-text-m overflow-hidden text-ellipsis title-spaced">
+            {{ title }}
+        </h2>
     </RouterLink>
 </template>
 
 <style scoped>
     .card {
-        grid-template-rows: 1fr 2rem;
+        grid-template-rows: 1fr 3rem;
     }
     .card:hover {
         background-color: var(--fg-light);
     }
     .card:hover h2, .card:hover img {
         filter: invert();
+    }
+    .title-spaced {
+    margin-top: -0.9rem;
     }
 </style>

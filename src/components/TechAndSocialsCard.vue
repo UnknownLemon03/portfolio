@@ -1,22 +1,48 @@
 <script setup lang="ts">
-    import { ref } from "vue";
+import { ref } from "vue";
+import { technologies ,socials} from "@/info"; 
+// Technologies
+import rustLogo from "@/assets/svg/rust.svg";
+import typescriptLogo from "@/assets/svg/typescript.svg";
+import javaLogo from "@/assets/svg/java.svg";
+import dockerLogo from "@/assets/svg/docker.svg";
+import vueLogo from "@/assets/svg/vue.svg";
+import gitLogo from "@/assets/svg/git.svg";
+import linuxLogo from "@/assets/svg/linux.svg";
 
-    // Technologies
-    import rustLogo from "@/assets/svg/rust.svg";
-    import typescriptLogo from "@/assets/svg/typescript.svg";
-    import javaLogo from "@/assets/svg/java.svg";
-    import dockerLogo from "@/assets/svg/docker.svg";
-    import vueLogo from "@/assets/svg/vue.svg";
-    import gitLogo from "@/assets/svg/git.svg";
-    import linuxLogo from "@/assets/svg/linux.svg";
-    // Socials
-    import githubLogo from "@/assets/svg/github.svg";
-    import twitterLogo from "@/assets/svg/twitter.svg";
-    import youtubeLogo from "@/assets/svg/youtube.svg";
-    import discordLogo from "@/assets/svg/discord.svg";
+// Socials
+import githubLogo from "@/assets/svg/github.svg";
+import twitterLogo from "@/assets/svg/twitter.svg";
+import youtubeLogo from "@/assets/svg/youtube.svg";
+import discordLogo from "@/assets/svg/discord.svg";
 
-    let showSocials = ref(false);
+let showSocials = ref(false);
+
+const technologiesw = [
+  { src: rustLogo, alt: "The Rust Programming Language logo" },
+  { src: typescriptLogo, alt: "Typescript logo" },
+  { src: javaLogo, alt: "Java Programming Language logo" },
+  { src: dockerLogo, alt: "Docker logo" },
+  { src: gitLogo, alt: "Git logo" },
+  { src: vueLogo, alt: "Vue.js logo" },
+  { src: linuxLogo, alt: "Linux logo" },
+  { src: rustLogo, alt: "The Rust Programming Language logo" },
+  { src: typescriptLogo, alt: "Typescript logo" },
+  { src: javaLogo, alt: "Java Programming Language logo" },
+  { src: dockerLogo, alt: "Docker logo" },
+  { src: gitLogo, alt: "Git logo" },
+  { src: vueLogo, alt: "Vue.js logo" },
+  { src: linuxLogo, alt: "Linux logo" },
+  { src: rustLogo, alt: "The Rust Programming Language logo" },
+  { src: typescriptLogo, alt: "Typescript logo" },
+  { src: javaLogo, alt: "Java Programming Language logo" },
+  { src: dockerLogo, alt: "Docker logo" },
+  { src: gitLogo, alt: "Git logo" },
+  { src: vueLogo, alt: "Vue.js logo" },
+  { src: linuxLogo, alt: "Linux logo" },
+];
 </script>
+
 
 <template>
     <div class="window langs-and-socials grid">
@@ -39,33 +65,30 @@
         <!-- TECHNOLOGIES I USE -->
         <div v-if="!showSocials" class="content full-h full-w">
             <div class="item-list flex g-xxl j-center wrap p-x">
-                <img class="item" :src="rustLogo" alt="The Rust Programming Language logo">
-                <img class="item" :src="typescriptLogo" alt="Typescript logo">
-                <img class="item" :src="javaLogo" alt="Java Programming Language logo">
-                <img class="item" :src="dockerLogo" alt="Java Programming Language logo">
-                <img class="item" :src="gitLogo" alt="Java Programming Language logo">
-                <img class="item" :src="vueLogo" alt="Java Programming Language logo">
-                <img class="item" :src="linuxLogo" alt="Java Programming Language logo">
+                <img
+                v-for="(tech, index) in technologies"
+                :key="index"
+                class="item"
+                :src="tech.src"
+                :alt="tech.alt"
+                />
             </div>
         </div>
 
         <!-- MY SOCIALS :3 -->
         <div v-else class="content full-h full-w">
-            <div class="item-list flex g-xxl j-center wrap p-x">
-                <a href="https://github.com/notKimu" target="_blank">
-                    <img class="item" :src="githubLogo" alt="Kimu's Github page">
-                </a>
-                <a href="https://twitter.com/notkimu" target="_blank">
-                    <img class="item" :src="twitterLogo" alt="Kimu's Twitter page">
-                </a>
-                <a href="https://www.youtube.com/@kimu_x64" target="_blank">
-                    <img class="item" :src="youtubeLogo" alt="Kimu's Youtube channel">
-                </a>
-                <a href="https://discord.gg/NfeXrQdXdE" target="_blank">
-                    <img class="item" :src="discordLogo" alt="Kimu's Discord server">
-                </a>
-            </div>
+        <div class="item-list flex g-xxl j-center wrap p-x">
+            <a
+            v-for="(social, index) in socials"
+            :key="index"
+            :href="social.href"
+            target="_blank"
+            >
+            <img class="item" :src="social.src" :alt="social.alt" />
+            </a>
         </div>
+        </div>
+
     </div>
 </template>
 
