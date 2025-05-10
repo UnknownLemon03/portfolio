@@ -17,9 +17,9 @@
             <div class="full-w flex center  j-center g-xx">
                 <!-- <img width="20%" src="https://media.tenor.com/hVRhFeDFW6oAAAAi/anime-wave.gif" /> -->
                 <p class="adaptive-text-m">
-                    Heya!
+                    Hey there! 
                     <br>
-                    I am Bhargav =w=
+                    I'm Bhargav :)
                 </p>
             </div>
 

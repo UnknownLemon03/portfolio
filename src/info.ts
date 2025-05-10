@@ -55,23 +55,21 @@ export const socials = [
   },
 ];
 export const Name = "Lemon"
-export const firstIntro = "Heya! I'm Bhargav — just a smol dev who fell in love with building things that *actually* work (most of the time)."
+export const firstIntro = "Hey! I'm Bhargav — a fresh-faced developer who fell in love with building things that actually work (most of the time)"
 export const messageList = [
-  "I once debugged a WebSocket issue at 2 AM... and it worked only because I restarted the server.",
-  "I like my code like my coffee: clean, strong, and preferably error-free.",
-  "Real-time apps are fun—until you forget to handle disconnects. Oops.",
-  "React is cool, but when I saw how fast Bun is, I questioned my loyalty.",
-  "Docker made my life easier... until I forgot I mapped the wrong port.",
-  "I believe in writing code that my future self won’t curse me for.",
+  "I once debugged a WebSocket issue at 2 AM... and it worked only because I restarted the server",
+  "I like my code like my coffee: clean, strong, and preferably error-free",
+  "Docker made my life easier... until I forgot I mapped the wrong port",
+  "I believe in writing code that my future self won’t curse me for",
   "If it runs on localhost:3000, it's basically done, right?",
   "Don't ask me why I like the name Lemon — it just feels right, okay?",
-  "Yes, I *do* talk to my code. It helps. Don't judge.",
-  "I like building stuff that works—and then figuring out why it broke.",
-  "Sometimes I dream in JSON.",
-  "Nothing feels better than seeing `Connected to server` on the first try.",
-  "I write code to learn, to build, and to sometimes fight JavaScript weirdness.",
-  "JavaScript and I had a good run… but once TypeScript came along, I knew it was over.",
-
+  "Yes, I *do* talk to my code. It helps. Don't judge",
+  "I like building stuff that works—and then figuring out why it broke",
+  "Nothing feels better than seeing `Connected to server` on the first try",
+  "JavaScript and I had a good run… but once TypeScript came along, I knew it was over",
+  "I know I'm not the most talkative person, but bring up a project, and suddenly I can't stop talking",
+  "I don't know if it's imposter syndrome or just realistic self-awareness at this point.",
+  "I’ve broken production once... okay, twice... maybe a few more times...... let’s not count"
 ];
 
 
@@ -109,7 +107,7 @@ export const projects = [
 
 
 export const about = `
-    A smol but mighty dev with just enough energy to start too many projects and somehow finish most of them. Always chasing that clean, fast, and satisfying build. <br/><br/>
+    A fresh dev with just enough energy to start too many projects and somehow finish most of them. Always chasing that clean, fast, and satisfying build. <br/><br/>
 
 Currently obsessed with building backend-heavy, feature-rich apps that can scale like crazy (or at least try to so I can eventually land a decent job and touch grass once in a while).<br/><br/>
 
@@ -118,10 +116,14 @@ As soon as college looks away, I'm back in my editor making questionable life ch
 <br/>
 <br/>
 I don’t always know what I’m building… but I’m definitely building something.
+<br/>
+<br/>
+I didn’t plan to be a dev — I just kind of stuck with the one thing that didn’t completely confuse me.
 `
 
 export const workStation = `
-    My main OS is Ubuntu Linux, which I use alongside Windows in a dual boot setup. <br/><br/> I initially switched because I couldn't stand how much RAM Windows needed, but now I actually enjoy the balance of both and plan to stick with this setup for a while.
+    My main OS is Ubuntu Linux, which I use alongside Windows in a dual boot setup. <br/><br/> 
+    I initially switched because I couldn't stand how much RAM Windows needed, but now I actually enjoy the balance of both and plan to stick with this setup for a while.
 `
 
 export const hobbies = `

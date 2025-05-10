@@ -9,41 +9,27 @@
 
     let displayedMessage = ref(firstIntro);
    
-
-    // const randomizeMessage = (): void => {
-    //     let randomMessageIndex = Math.floor(Math.random() * (messageList.length - 1));
-    //     if (randomMessageIndex === messageIndex) {
-    //         randomMessageIndex += 1;
-    //     }
-    //     messageIndex = randomMessageIndex;
-        
-    //     // console.warn(randomMessageIndex+"<< Random | Length >> "+messageList.length)
-    //     displayedMessage.value = messageList[randomMessageIndex];
-        
-    //     // Update index so the wobbly component re-renders
-    //     idx += 1;
-    // }
-    let usedIndices: Set<number> = new Set();
+    const usedIndices = new Set<number>();
+    let unusedIndices = Array.from(messageList.keys()); // Initially, all indices are unused
 
     const randomizeMessage = (): void => {
-        // Check if all messages have been used
-        if (usedIndices.size === messageList.length) {
-            usedIndices.clear(); // Reset if all messages have been used
+        // Reset if all messages have been used
+        if (unusedIndices.length === 0) {
+            usedIndices.clear();
+            unusedIndices = Array.from(messageList.keys());
         }
 
-        let randomMessageIndex: number;
-        do {
-            randomMessageIndex = Math.floor(Math.random() * messageList.length);
-        } while (usedIndices.has(randomMessageIndex)); // Ensure we haven't used this index before
+        // Pick a random index from the unused list
+        const randomPos = Math.floor(Math.random() * unusedIndices.length);
+        const randomMessageIndex = unusedIndices[randomPos];
 
-        usedIndices.add(randomMessageIndex); // Mark this index as used
-
-        // Update the displayed message
+        // Update state
+        usedIndices.add(randomMessageIndex);
+        unusedIndices.splice(randomPos, 1); // Remove used index from the unused list
         displayedMessage.value = messageList[randomMessageIndex];
+        idx += 1; // Trigger re-render if needed
+    };
 
-        // Update index so the wobbly component re-renders
-        idx += 1;
-    }
 
 </script>
 
