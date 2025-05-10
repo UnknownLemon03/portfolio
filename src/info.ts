@@ -55,7 +55,7 @@ export const socials = [
   },
 ];
 export const Name = "Lemon"
-export const firstIntro = "Heya! I'm Lemon — just a smol dev who fell in love with building things that *actually* work (most of the time)."
+export const firstIntro = "Heya! I'm Bhargav — just a smol dev who fell in love with building things that *actually* work (most of the time)."
 export const messageList = [
   "I once debugged a WebSocket issue at 2 AM... and it worked only because I restarted the server.",
   "I like my code like my coffee: clean, strong, and preferably error-free.",
