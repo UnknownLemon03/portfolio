@@ -53,7 +53,7 @@
 
 <style scoped>
     .project {
-        height:           10rem;
+        min-height:           10rem;
         background-color: black;
     }
     .project__techs {
