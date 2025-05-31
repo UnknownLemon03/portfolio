@@ -103,6 +103,14 @@ export const projects = [
     technologies: ["React", "Redux", "Tailwind CSS", "Chart.js", "Node.js", "Express", "Socket.IO", "MongoDB"],
     github: "https://github.com/UnknownLemon03/restaurants-management"
   },
+  {
+    title: "Property Listing System",
+    description: "A full-stack property listing platform with authentication, advanced filtering, favorites, caching, and property recommendations.",
+    image: "",  // Replace with your project image
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript", "Node.js", "Express", "MongoDB", "Redis", "Swagger"],
+    github: "https://github.com/UnknownLemon03/lemon-property"
+  }
+
 ];
 
 
