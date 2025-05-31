@@ -3,7 +3,8 @@
     import WobblyText from "@/components/text/Wobbly.vue";
 
     import artixDesktop from "@/assets/img/workstation_artix.webp";
-    import {workStation} from "@/info"
+    // import {workStation} from "@/info"
+    import { get } from "@/fetch";
 </script>
 
 <template>
@@ -22,7 +23,7 @@
             <div class="divider" />
 
             <!-- About me content -->
-            <p class="adaptive-text-x" v-html="workStation">
+            <p class="adaptive-text-x" v-html="get()[`workStation`]">
                
                 
             </p>

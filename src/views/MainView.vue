@@ -10,6 +10,11 @@
   import projectsIcon from "@/assets/svg/article.svg";
   import workstationIcon from "@/assets/svg/computer.svg";
   import downasaurIcon from "@/assets/svg/downasaur.svg";
+  import { FetchData } from "@/fetch";
+  import { onMounted } from "vue";
+  onMounted(async () => {
+    await FetchData("https://raw.githubusercontent.com/UnknownLemon03/portfolio_data/refs/heads/main/data.json");
+  });
 </script>
 
 <template>

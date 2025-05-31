@@ -1,8 +1,9 @@
 <script setup lang="ts">
     import "@/assets/styles/info/base.css";
     import WobblyText from "@/components/text/Wobbly.vue";
-    import {hobbies} from "@/info"
+    // import {hobbies} from "@/info"
     import bridgetSingingGif from "@/assets/animations/bridget_walk.gif";
+import { get, portfolioData } from "@/fetch";
 </script>
 
 <template>
@@ -15,7 +16,8 @@
         <main class="hobbies__content grid g-x">
             <img class="hobbies__content__sideimage" src="https://giffiles.alphacoders.com/146/14693.gif" />
 
-            <h3 class="hobbies__content__text" v-html="hobbies">
+            <h3 class="hobbies__content__text" v-html="get()[`hobbies`]">
+
                 
             </h3>
         </main>

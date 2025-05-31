@@ -1,22 +1,26 @@
 <script setup lang="ts">
-    import { ref } from "vue";
+    import { ref, watchEffect } from "vue";
     import WobblyText from "@/components/text/Wobbly.vue";
-    import { messageList} from "@/info"; 
     import arrowIcon from "@/assets/svg/play.svg";
-    import {firstIntro,Name} from "@/info"
+import { get } from "@/fetch";
     let idx = 0;
     let messageIndex = 0;
 
-    let displayedMessage = ref(firstIntro);
-   
+    let displayedMessage = ref(get()['firstIntro']);
+    watchEffect(() => {
+        const intro = get().firstIntro;
+        if (intro) {
+            displayedMessage.value = intro;
+        }
+    }); 
     const usedIndices = new Set<number>();
-    let unusedIndices = Array.from(messageList.keys()); // Initially, all indices are unused
+    let unusedIndices = Array.from(get()["messageList"].keys()); // Initially, all indices are unused
 
     const randomizeMessage = (): void => {
         // Reset if all messages have been used
         if (unusedIndices.length === 0) {
             usedIndices.clear();
-            unusedIndices = Array.from(messageList.keys());
+            unusedIndices = Array.from(get()["messageList"].keys());
         }
 
         // Pick a random index from the unused list
@@ -26,7 +30,7 @@
         // Update state
         usedIndices.add(randomMessageIndex);
         unusedIndices.splice(randomPos, 1); // Remove used index from the unused list
-        displayedMessage.value = messageList[randomMessageIndex];
+        displayedMessage.value = get()["messageList"][randomMessageIndex];
         idx += 1; // Trigger re-render if needed
     };
 
@@ -38,7 +42,7 @@
         <img src="https://avatars.githubusercontent.com/u/112918205?v=4" class="profile__image full-h" alt="Github profile">
 
         <div class="textbox flex col g-m">
-            <h1>{{ Name }}</h1>
+            <h1>{{ get()['name'] }}</h1>
             <h1 class="adaptive-text-x">
                 <WobblyText :text="displayedMessage" :key="idx" />
             </h1>

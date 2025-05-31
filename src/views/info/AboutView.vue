@@ -1,8 +1,10 @@
 <script setup lang="ts">
     import "@/assets/styles/info/base.css";
     import WobblyText from "@/components/text/Wobbly.vue";
-    import { about } from "@/info"; 
+    // import { about } from "@/info"; 
     import mayGif from "@/assets/animations/may_anggy.gif";
+    import { get, portfolioData } from "@/fetch";
+
 </script>
 
 <template>
@@ -26,7 +28,8 @@
             <div class="divider" />
 
             <!-- About me content -->
-            <p class="adaptive-text-x" v-html="about">
+            <p class="adaptive-text-x" v-html="get()[`about`]">
+         
                 
 
                 

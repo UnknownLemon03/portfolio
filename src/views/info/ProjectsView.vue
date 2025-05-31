@@ -9,7 +9,8 @@
     import archanImage from "@/assets/img/archan.webp";
     import limeCordIcon from "@/assets/img/limecord.webp";
     import ryokoIcon from "@/assets/img/ryoko.webp";
-    import { projects } from "@/info"; 
+    // import { projects } from "@/info"; 
+    import { get } from "@/fetch";
 </script>
 
 <template>
@@ -31,7 +32,7 @@
             <!-- About me content -->
             <div class="projects__list flex col g-m">
                 <ProjectCard
-                    v-for="(project, index) in projects"
+                    v-for="(project, index) in get()[`projects`]"
                     :key="index"
                     :title="project.title"
                     :description="project.description"

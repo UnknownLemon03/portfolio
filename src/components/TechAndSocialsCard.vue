@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { technologies ,socials} from "@/info"; 
+// import { technologies ,socials} from "@/info"; 
 // Technologies
 import rustLogo from "@/assets/svg/rust.svg";
 import typescriptLogo from "@/assets/svg/typescript.svg";
@@ -15,6 +15,7 @@ import githubLogo from "@/assets/svg/github.svg";
 import twitterLogo from "@/assets/svg/twitter.svg";
 import youtubeLogo from "@/assets/svg/youtube.svg";
 import discordLogo from "@/assets/svg/discord.svg";
+import { get } from "@/fetch";
 
 let showSocials = ref(false);
 
@@ -66,7 +67,7 @@ const technologiesw = [
         <div v-if="!showSocials" class="content full-h full-w">
             <div class="item-list flex g-xxl j-center wrap p-x">
                 <img
-                v-for="(tech, index) in technologies"
+                v-for="(tech, index) in get()[`technologies`]"
                 :key="index"
                 class="item"
                 :src="tech.src"
@@ -79,7 +80,7 @@ const technologiesw = [
         <div v-else class="content full-h full-w">
         <div class="item-list flex g-xxl j-center wrap p-x">
             <a
-            v-for="(social, index) in socials"
+            v-for="(social, index) in get()[`socials`]"
             :key="index"
             :href="social.href"
             target="_blank"
