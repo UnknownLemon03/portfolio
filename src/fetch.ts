@@ -59,8 +59,6 @@ async function FetchData(url: string): Promise<void> {
     if (!response.ok) throw new Error("Failed to fetch data");
     const data: PortfolioData = await response.json();
     const locationMessage = await guessUserLocation();
-    console.log("-------------------------------------");
-    data.messageList.push(locationMessage);
     Object.assign(portfolioData, data);
     console.log("Portfolio data loaded successfully: --- ", portfolioData);
   } catch (err) {
