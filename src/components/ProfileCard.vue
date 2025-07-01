@@ -15,7 +15,6 @@ import { get } from "@/fetch";
     }); 
     const usedIndices = new Set<number>();
     let unusedIndices = Array.from(get()["messageList"].keys()); // Initially, all indices are unused
-
     const randomizeMessage = (): void => {
         // Reset if all messages have been used
         if (unusedIndices.length === 0) {
