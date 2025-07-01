@@ -70,7 +70,7 @@ async function FetchData(url: string): Promise<void> {
 
 async function guessUserLocation(): Promise<string> {
   try {
-    const res = await fetch('https://ipapi.co/json/');
+    const res = await fetch('https://ipwho.is/');
 
     const data = await res.json();
 
