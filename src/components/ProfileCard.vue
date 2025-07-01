@@ -14,11 +14,13 @@ import { get } from "@/fetch";
         }
     }); 
     const usedIndices = new Set<number>();
+    let locationMessageRead = ref(true);
     let unusedIndices = Array.from(get()["messageList"].keys()); // Initially, all indices are unused
     const randomizeMessage = (): void => {
         // Reset if all messages have been used
-        if (unusedIndices.length === 0) {
+        if (unusedIndices.length === 0 && locationMessageRead) {
             usedIndices.clear();
+            locationMessageRead.value=false
             unusedIndices = Array.from(get()["messageList"].keys());
         }
 
