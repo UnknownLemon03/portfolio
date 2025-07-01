@@ -18,16 +18,17 @@ import { get } from "@/fetch";
     let unusedIndices = Array.from(get()["messageList"].keys()); // Initially, all indices are unused
     const randomizeMessage = (): void => {
         // Reset if all messages have been used
-        if (unusedIndices.length === 0 && locationMessageRead) {
+        if (unusedIndices.length === 0) {
             usedIndices.clear();
-            locationMessageRead.value=false
+
             unusedIndices = Array.from(get()["messageList"].keys());
         }
 
         // Pick a random index from the unused list
         let randomPos = Math.floor(Math.random() * unusedIndices.length);
-        if(unusedIndices.length === get()["messageList"].length) {
+        if(unusedIndices.length === get()["messageList"].length && locationMessageRead.value) {
             randomPos = get()["messageList"].length - 1; // If all messages are unused, just use the last one
+            locationMessageRead.value = false; // Mark the location message as read
         }
         const randomMessageIndex = unusedIndices[randomPos];
 
