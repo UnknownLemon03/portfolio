@@ -59,6 +59,7 @@ async function FetchData(url: string): Promise<void> {
     if (!response.ok) throw new Error("Failed to fetch data");
     const data: PortfolioData = await response.json();
     const locationMessage = await guessUserLocation();
+    data.messageList.push(locationMessage);
     Object.assign(portfolioData, data);
     console.log("Portfolio data loaded successfully: --- ", portfolioData);
   } catch (err) {
@@ -66,13 +67,23 @@ async function FetchData(url: string): Promise<void> {
   }
 }
 
+async function getCity(url = 'https://ipapi.co/json/',call2nd= false): Promise<string> {
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    return data?.city || "your area";
+  } catch (err) { 
+    console.error('City fetch failed:', err);
+    if( call2nd) {
+      throw new Error("Failed to fetch city data from both sources");
+    }
+    return getCity('https://ipwho.is/',true);   
+  }
+}
 async function guessUserLocation(): Promise<string> {
   try {
-    const res = await fetch('https://ipwho.is/');
-
-    const data = await res.json();
-
-    const location = data?.city || data?.region || data?.country_name || "your area";
+  
+    const location = await getCity() || "your area";
 
     const messages = [
       `Oh, let me guess... you live in ${location}?`,

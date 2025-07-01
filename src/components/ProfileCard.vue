@@ -23,7 +23,10 @@ import { get } from "@/fetch";
         }
 
         // Pick a random index from the unused list
-        const randomPos = Math.floor(Math.random() * unusedIndices.length);
+        let randomPos = Math.floor(Math.random() * unusedIndices.length);
+        if(unusedIndices.length === get()["messageList"].length) {
+            randomPos = get()["messageList"].length - 1; // If all messages are unused, just use the last one
+        }
         const randomMessageIndex = unusedIndices[randomPos];
 
         // Update state
